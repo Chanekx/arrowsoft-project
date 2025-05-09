@@ -1,3 +1,4 @@
+"use client";
 import yup from "@/lib/yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -13,28 +14,21 @@ type FormValues = yup.InferType<typeof schema>;
 export const useHooks = () => {
   const { control, handleSubmit } = useForm<FormValues>({
     resolver: yupResolver(schema),
-    defaultValues:{
-        username: "",
-        password: "",
-    }
   });
-
-  
 
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
-  const handleClickShowPassword = () => setShowPassword(!showPassword)
+  const handleClickShowPassword = () => setShowPassword(!showPassword);
 
   const handleLogin = (data: FormValues) => {
     console.log("Login data: ", data);
   };
-
 
   return {
     control,
     handleSubmit,
     handleLogin,
     handleClickShowPassword,
-    login : handleSubmit(handleLogin),
+    login: handleSubmit(handleLogin),
   };
 };
