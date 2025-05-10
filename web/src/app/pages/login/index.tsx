@@ -1,9 +1,10 @@
-import { Box, Button, Stack, TextField } from "@mui/material";
+import { Box, Button, Stack } from "@mui/material";
 import Image from "next/image";
 import { useHooks } from "./hooks";
+import InputField from "@/components/InputField/inputfield";
 
 const LoginPage = () => {
-  const {control, login} = useHooks();
+  const { control, login } = useHooks();
   return (
     <>
       <Stack height="100vh" width="100%" sx={{ background: "#9DBE8A" }}>
@@ -28,7 +29,7 @@ const LoginPage = () => {
             />
           </Box>
         </Stack>
-        <form style={{height:'100%'}} onSubmit={login}>
+        <form style={{ height: "100%" }} onSubmit={login}>
           <Stack
             sx={{
               background: "pink",
@@ -42,11 +43,17 @@ const LoginPage = () => {
               top: 0,
             }}
           >
-           
-              <TextField type="email" value={control} label ="Filled"></TextField>
-              <TextField type="password" value={control}></TextField>
-              <Button sx={{border:'1px solid black'}}>Login</Button>
-            
+            <InputField
+              control={control}
+              type="text"
+              name="username"
+            ></InputField>
+            <InputField
+              control={control}
+              type="password"
+              name="password"
+            ></InputField>
+            <Button sx={{ border: "1px solid black" }}type="submit">Login</Button>
           </Stack>
         </form>
       </Stack>

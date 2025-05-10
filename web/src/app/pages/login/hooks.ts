@@ -26,7 +26,7 @@ export const useHooks = () => {
   const handleClickShowPassword = () => setShowPassword(!showPassword)
 
   const handleLogin = (data: FormValues) => {
-    console.log("Login data: ", data);
+    console.log('hello' ,data)
   };
 
 
