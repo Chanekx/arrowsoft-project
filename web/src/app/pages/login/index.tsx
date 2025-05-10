@@ -5,6 +5,7 @@ import InputField from "@/components/InputField/inputfield";
 
 const LoginPage = () => {
   const { control, login } = useHooks();
+  
   return (
     <>
       <Stack height="100vh" width="100%" sx={{ background: "#9DBE8A" }}>
@@ -23,7 +24,7 @@ const LoginPage = () => {
           <Box sx={{ height: "100%", width: "100%", position: "relative" }}>
             <Image
               alt="Catnip Logo"
-              src="/meow.svg"
+              src="/loginbackground.jpg"
               objectFit="cover"
               layout="fill"
             />

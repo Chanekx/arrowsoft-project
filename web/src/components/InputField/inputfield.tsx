@@ -17,7 +17,7 @@ const InputField = ({
   return (
     <TextField
       {...control.register(name)} // Register the field using control.register
-      sx={{ width: "400px", paddingBottom: "20px" }}
+      sx={{ width: "60%", paddingBottom: "20px" }}
       name={name}
       type={type}
       placeholder={placeholder}
