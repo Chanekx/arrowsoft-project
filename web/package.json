@@ -16,8 +16,12 @@
     "next": "^15.3.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+<<<<<<< HEAD
     "react-hook-form": "^7.56.3",
     "yup": "^1.6.1"
+=======
+    "react-hook-form": "^7.56.3"
+>>>>>>> feat/login-page
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
