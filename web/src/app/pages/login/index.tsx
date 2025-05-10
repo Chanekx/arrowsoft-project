@@ -5,7 +5,7 @@ import InputField from "@/components/InputField/inputfield";
 
 const LoginPage = () => {
   const { control, login } = useHooks();
-  
+
   return (
     <>
       <Stack height="100vh" width="100%" sx={{ background: "#9DBE8A" }}>
@@ -54,7 +54,9 @@ const LoginPage = () => {
               type="password"
               name="password"
             ></InputField>
-            <Button sx={{ border: "1px solid black" }}type="submit">Login</Button>
+            <Button sx={{ border: "1px solid black" }} type="submit">
+              Login
+            </Button>
           </Stack>
         </form>
       </Stack>
