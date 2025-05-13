@@ -6,6 +6,7 @@ interface InputFieldProps {
   name: string;
   type?: string;
   placeholder?: string;
+  label?: string;
 }
 
 const InputField = ({
@@ -13,14 +14,17 @@ const InputField = ({
   name,
   type = "text",
   placeholder,
+  label,
 }: InputFieldProps) => {
   return (
     <TextField
       {...control.register(name)} // Register the field using control.register
-      sx={{ width: "60%", paddingBottom: "20px" }}
+      sx={{ width: "100%" }}
       name={name}
       type={type}
       placeholder={placeholder}
+      label={label}
+      variant="outlined"
     />
   );
 };

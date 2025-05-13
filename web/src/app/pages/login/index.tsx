@@ -1,11 +1,13 @@
-import { Box, Button, Stack } from "@mui/material";
+"use client";
+import { Box, Button, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import { useHooks } from "./hooks";
+import Link from "next/link";
 import InputField from "@/components/InputField/inputfield";
+// import InputField from "@/components/InputField/inputfield";
 
 const LoginPage = () => {
   const { control, login } = useHooks();
-
   return (
     <>
       <Stack height="100vh" width="100%" sx={{ background: "#9DBE8A" }}>
@@ -44,19 +46,26 @@ const LoginPage = () => {
               top: 0,
             }}
           >
-            <InputField
-              control={control}
-              type="text"
-              name="username"
-            ></InputField>
+            <InputField control={control} type="text" name="username" />
             <InputField
               control={control}
               type="password"
               name="password"
             ></InputField>
-            <Button sx={{ border: "1px solid black" }} type="submit">
-              Login
+            <Typography sx={{ paddingBottom: "10px" }}>
+              <Link href={"/pages/reset-password"}> Forgot Password?</Link>
+            </Typography>
+
+            <Button
+              sx={{ border: "1px solid black" }}
+              type="submit"
+              variant="contained"
+            >
+              Sign In
             </Button>
+            <Typography>
+              Dont have an account? <Link href={"/pages/sign-up"}>Sign Up</Link>
+            </Typography>
           </Stack>
         </form>
       </Stack>

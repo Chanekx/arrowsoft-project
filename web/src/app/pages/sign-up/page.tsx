@@ -1,9 +1,10 @@
 "use client";
-import { Button, Stack, TextField, Typography } from "@mui/material";
+import { Button, Stack, Typography, CircularProgress, Alert } from "@mui/material";
 import { useHooks } from "./hooks";
+import InputField from "@/components/InputField/inputfield";
 
 const SignUpPage = () => {
-  const { handleCreateAccount } = useHooks();
+  const { createAccount, control, isLoading, error } = useHooks();
   return (
     <>
       <Stack sx={{ height: "100vh" }}>
@@ -17,27 +18,37 @@ const SignUpPage = () => {
             position: "absolute",
             right: 0,
             top: 0,
-            flexdirection: "columnn",
+            flexDirection: "column",
           }}
         >
-          <form onSubmit={handleCreateAccount}>
-            <Typography variant="h2">SIGN UP HERE</Typography>
-            <TextField
-              type="text"
-              sx={{ width: "80%", paddingBottom: "20px" }}
-            ></TextField>
-            <TextField
-              type="text"
-              sx={{ width: "80%", paddingBottom: "20px" }}
-            ></TextField>
-            <TextField
-              type="password"
-              sx={{ width: "80%", paddingBottom: "20px" }}
-            ></TextField>
-            <Button>Create Account</Button>
+          <form onSubmit={createAccount}>
+            <Stack spacing={2} sx={{ width: "300px" }}>
+              <Typography variant="h2" align="center">SIGN UP HERE</Typography>
+              
+              {error && (
+                <Alert severity="error" sx={{ width: '100%' }}>
+                  {error}
+                </Alert>
+              )}
+
+              <InputField type="text" control={control} name="username" label="Username" />
+              <InputField type="text" control={control} name="firstname" label="firstname"></InputField>
+              <InputField type="text" control={control} name="lastname" label="lastname"></InputField>
+              <InputField type="password" control={control} name="password" label="Password" />
+              <InputField type="password" control={control} name="password2" label="Confirm Password" />
+              
+              <Button 
+                type="submit" 
+                variant="contained" 
+                fullWidth 
+                disabled={isLoading}
+              >
+                {isLoading ? <CircularProgress size={24} /> : 'Create Account'}
+              </Button>
+            </Stack>
           </form>
 
-          <Button href={"/"}>Login</Button>
+          <Button href={"/"} sx={{ mt: 2 }}>Login</Button>
         </Stack>
       </Stack>
     </>

@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
+    "@nestjs/mapped-types": "*",
     "yup": "^1.6.1"
   },
   "devDependencies": {
